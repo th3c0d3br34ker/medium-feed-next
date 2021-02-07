@@ -13,11 +13,11 @@ export default function Home({ post }) {
     console.log(userId);
     setLoading(true);
     const url = `http://localhost:3000/api?id=${event.target.id.value}`;
-    console.log(url);
+    // console.log(url);
     const res = await fetch(url);
     const result = await res.json();
 
-    console.log(result);
+    // console.log( result);
     setPosts(result);
 
     setLoading(false);
@@ -55,7 +55,7 @@ export default function Home({ post }) {
           <>
             <h2>{`@${userId}'s Medium Blogs`}</h2>
             <div className={styles.grid}>
-              {posts.map(({ title, link }, idx) => {
+              {posts.map(({ title, link, creator }, idx) => {
                 return (
                   <a
                     href={link}
@@ -64,6 +64,8 @@ export default function Home({ post }) {
                     target="_blank"
                   >
                     <h3>{title} &rarr;</h3>
+                    <p className={styles.subtitle}>{` by ${creator}`}</p>
+
                     <p>Still looking a way to parse the encoded Markdown 🥺.</p>
                   </a>
                 );

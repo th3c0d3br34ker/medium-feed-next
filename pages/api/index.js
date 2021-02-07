@@ -16,6 +16,6 @@ async function main(userId) {
 export default async function handler(req, res) {
   const id = req.query.id;
   const data = await main(id);
-  console.log(!!data);
+  console.log(Object.keys(data[0]));
   res.status(200).send(data);
 }
