@@ -12,7 +12,7 @@ export default function Home({ post }) {
     setUserId(event.target.id.value);
     console.log(userId);
     setLoading(true);
-    const url = `http://localhost:3000/api?id=${event.target.id.value}`;
+    const url = `https://medium-feed-next.vercel.app/api?id=${event.target.id.value}`;
     // console.log(url);
     const res = await fetch(url);
     const result = await res.json();
